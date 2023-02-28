@@ -1,0 +1,202 @@
+:root {
+  --card-back-url: url("https://cdn-icons-png.flaticon.com/512/351/351695.png");
+  --heart-url: url("https://assets-lighthouse.alphacamp.co/uploads/image/file/17992/heart.png");
+  --diamond-url: url("https://assets-lighthouse.alphacamp.co/uploads/image/file/17991/diamonds.png");
+  --club-url: url("https://assets-lighthouse.alphacamp.co/uploads/image/file/17988/__.png");
+  --spade-url: url("https://assets-lighthouse.alphacamp.co/uploads/image/file/17989/__.png");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/** Header **/
+#header {
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 85%;
+}
+
+#header .title {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+#header .title img {
+  max-width: 3em;
+}
+
+#header .title h2 {
+  padding-left: 0.5em;
+  font-weight: bolder;
+}
+
+#header .score {
+  margin: 0;
+  color: #825e51af;
+  font-weight: bold;
+}
+
+#header .tried {
+  margin-top: 0;
+  color: #2f2020;
+  font-weight: bold;
+}
+
+/** easy mode **/
+#header .easy-mode {
+  height: 30px;
+  width: 150px;
+  font-size: 8px;
+  padding: 3px;
+}
+
+#header .easy-mode>a {
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+/** Cards **/
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+  margin: 0 auto;
+}
+
+.card {
+  /* box-sizing: border-box; */
+
+  flex: 7% 1 1;
+  /* 7% container width */
+  height: 8vw;
+  /* 8% container height */
+  border: 2px solid #727567;
+  margin: 4px;
+
+  /* display  */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  cursor: pointer;
+}
+
+.card .card-img {
+  width: 20px;
+  height: 20px;
+  align-self: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.card p {
+  margin: 3px;
+  font-size: 10px;
+}
+
+.card p:last-child {
+  transform: rotate(180deg);
+}
+
+.card:hover {
+  transform: scale(1.02) rotate(0.8deg) translate(0px, -1px);
+  box-shadow: 3.5px 4px 1.4px rgba(61, 61, 58, 0.317);
+  z-index: 10;
+}
+
+
+.back {
+  background: var(--card-back-url);
+  background-size: cover;
+}
+
+/* design for easy mode */
+.back-blur {
+  opacity: 0.5;
+}
+
+.paired {
+  background-color: #e0e0e0c0;
+}
+
+/* four suits */
+.heart {
+  background-image: var(--heart-url);
+}
+
+.diamond {
+  background-image: var(--diamond-url);
+}
+
+.club {
+  background-image: var(--club-url);
+}
+
+.spade {
+  background-image: var(--spade-url);
+}
+
+/* animation for answering wrong */
+.wrong {
+  animation-name: wrongAnimation;
+  animation-duration: 0.2s;
+  animation-iteration-count: 5;
+}
+
+@keyframes wrongAnimation {
+  to {
+    border: 2px solid #ffd54f;
+  }
+}
+
+/* end game message */
+#end-game-message {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 450px;
+  transform: translate(-50%, -50%);
+  background-color: rgba(122, 122, 122, 0.815);
+  color: white;
+  z-index: 5;
+}
+
+#end-game-message h4 {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 4px;
+  font-size: 18px;
+}
+
+#end-game-message span {
+  color: rgb(255, 255, 255);
+}
+
+#end-game-message button {
+  width: 190px;
+}
+
+/* Utility */
+.hide {
+  display: none !important;
+}
